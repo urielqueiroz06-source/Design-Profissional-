@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora do Esporte</title>
+</head>
+<body>
+    <header>
+        <h1>Hora do Esporte</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="#futebol">Futebol</a></li>
+                <li><a href="#basquete">Basquete</a></li>
+                <li><a href="#corrida">Corrida</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="grid-layout">
+        <section id="futebol" class="card">
+            <h2>⚽ Futebol</h2>
+            <img src="https://s1.1zoom.me/b5263/650/Footbal_Men_Ball_Two_Legs_Uniform_Grass_515024_1920x1080.jpg" alt="futebol">
+            <p>Últimas notícias e resultados de futebol.</p>
+            <button onclick="mostrarMensagem('Futebol')">Ver mais</button>
+        </section>
+
+        <section id="basquete" class="card">
+            <h2>🏀 Basquete</h2>
+            <img src="https://s1.static.brasilescola.uol.com.br/be/2022/08/basquete.jpg" alt="basquete">
+            <p>Jogos e estatísticas do basquete.</p>
+            <button onclick="mostrarMensagem('Basquete')">Ver mais</button>
+        </section>
+
+        <section id="corrida" class="card">
+            <h2>🏃 Corrida</h2>
+            <img src="https://runnersbrasil.com/wp-content/uploads/2023/09/Maratona-06-1000x600.jpg" alt="corrida">
+            <p>Dicas e eventos de corrida.</p>
+            <button onclick="mostrarMensagem('Corrida')">Ver mais</button>
+        </section>
+    </main>
+
+    <section id="contato" class="form-section">
+        <h2>📩 Fale Conosco</h2>
+        <form id="formContato">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" placeholder="Digite seu nome">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Digite seu email">
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" placeholder="Digite sua mensagem"></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+        <p id="msgContato"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Hora do Esporte</p>
+    </footer>
+
+</body>
+</html>

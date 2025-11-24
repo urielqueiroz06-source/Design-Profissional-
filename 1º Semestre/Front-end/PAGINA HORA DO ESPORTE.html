@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora do Esporte</title>
+    <style>
+        /* Reset básico */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+          background: #f4f4f4;
+          color: #333;
+        }
+
+        header {
+          background: #1e90ff;
+          color: white;
+          padding: 25px;
+          text-align: center;
+        }
+
+        .menu {
+          display: flex;
+          justify-content: center;
+          list-style: none;
+          margin-top: 10px;
+        }
+
+        .menu li {
+          margin: 0 15px;
+        }
+
+        .menu a {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+          transition: color 0.3s;
+        }
+
+        .menu a:hover {
+          color: #ffdd00;
+        }
+
+        .grid-layout {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 20px;
+          padding: 20px;
+        }
+
+        .card {
+          background: white;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+          transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0px 8px 12px rgba(0,0,0,0.2);
+        }
+
+        button {
+          background: #1e90ff;
+          color: white;
+          border: none;
+          padding: 10px 15px;
+          margin-top: 10px;
+          cursor: pointer;
+          border-radius: 5px;
+          transition: background 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+          background: #104e8b;
+          transform: scale(1.05);
+        }
+
+        .form-section {
+          background: white;
+          margin: 20px;
+          padding: 20px;
+          border-radius: 8px;
+        }
+
+        form {
+          display: flex;
+          flex-direction: column;
+        }
+
+        form label {
+          margin-top: 10px;
+          font-weight: bold;
+        }
+
+        form input, form textarea {
+          padding: 10px;
+          margin-top: 5px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          transition: border 0.3s, box-shadow 0.3s;
+        }
+
+        form input:focus, form textarea:focus {
+          border: 1px solid #1e90ff;
+          box-shadow: 0px 0px 5px rgba(30,144,255,0.5);
+        }
+
+        footer {
+          text-align: center;
+          background: #333;
+          color: white;
+          padding: 10px;
+          margin-top: 20px;
+        }
+
+        img {
+          width: 200px; /* deixa todas menores */
+          height: auto;
+          display: block;
+          margin: 10px auto;
+          border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hora do Esporte</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="#futebol">Futebol</a></li>
+                <li><a href="#basquete">Basquete</a></li>
+                <li><a href="#corrida">Corrida</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="grid-layout">
+        <section id="futebol" class="card">
+            <h2>⚽ Futebol</h2>
+            <img src="https://s1.1zoom.me/b5263/650/Footbal_Men_Ball_Two_Legs_Uniform_Grass_515024_1920x1080.jpg" alt="futebol">
+            <p>Últimas notícias e resultados de futebol.</p>
+            <button onclick="mostrarMensagem('Futebol')">Ver mais</button>
+        </section>
+
+        <section id="basquete" class="card">
+            <h2>🏀 Basquete</h2>
+            <img src="https://s1.static.brasilescola.uol.com.br/be/2022/08/basquete.jpg" alt="basquete">
+            <p>Jogos e estatísticas do basquete.</p>
+            <button onclick="mostrarMensagem('Basquete')">Ver mais</button>
+        </section>
+
+        <section id="corrida" class="card">
+            <h2>🏃 Corrida</h2>
+            <img src="https://runnersbrasil.com/wp-content/uploads/2023/09/Maratona-06-1000x600.jpg" alt="corrida">
+            <p>Dicas e eventos de corrida.</p>
+            <button onclick="mostrarMensagem('Corrida')">Ver mais</button>
+        </section>
+    </main>
+
+    <section id="contato" class="form-section">
+        <h2>📩 Fale Conosco</h2>
+        <form id="formContato">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" placeholder="Digite seu nome">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Digite seu email">
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" placeholder="Digite sua mensagem"></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+        <p id="msgContato"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Hora do Esporte</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Função para mostrar mensagem ao clicar nos botões
+        function mostrarMensagem(esporte) {
+            alert("Você clicou em mais informações sobre " + esporte + "!");
+        }
+
+        // Validação do formulário de contato
+        document.getElementById("formContato").addEventListener("submit", function(event) {
+            event.preventDefault(); // impede envio automático
+
+            let nome = document.getElementById("nome").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let mensagem = document.getElementById("mensagem").value.trim();
+
+            if (nome === "" || email === "" || mensagem === "") {
+                document.getElementById("msgContato").textContent = "⚠️ Preencha todos os campos!";
+                document.getElementById("msgContato").style.color = "red";
+            } else {
+                document.getElementById("msgContato").textContent = "✅ Mensagem enviada com sucesso!";
+                document.getElementById("msgContato").style.color = "green";
+            }
+        });
+    </script>
+</body>
+</html>
